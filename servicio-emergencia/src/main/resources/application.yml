@@ -1,0 +1,6 @@
+server:
+  port: 8082 # Puerto para este microservicio
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # URL del Servidor de Descubrimiento
