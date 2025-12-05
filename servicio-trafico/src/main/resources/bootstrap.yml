@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: servicio-trafico # Nombre clave para obtener la configuración
+  cloud:
+    config:
+      uri: http://localhost:8888 # URL del Servidor de Configuración

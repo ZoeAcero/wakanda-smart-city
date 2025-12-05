@@ -1,0 +1,6 @@
+server:
+  port: 8081 # Puerto único para el servicio de tráfico
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # URL del Servidor Eureka
