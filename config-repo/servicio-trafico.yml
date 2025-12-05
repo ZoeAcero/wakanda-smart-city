@@ -1,0 +1,7 @@
+# Archivo: servicio-trafico.yml
+trafico:
+  nombre: "Gestión de Tráfico Inteligente"
+  version: "1.0.0"
+  semaforos:
+    min-tiempo: 15
+    max-tiempo: 60
