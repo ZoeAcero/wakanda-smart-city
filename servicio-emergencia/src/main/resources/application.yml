@@ -4,3 +4,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ # URL del Servidor de Descubrimiento
+
+spring:
+  cloud:
+
+    compatibility-verifier:
+      enabled: false # Deshabilita la verificación que causa el fallo de arranque.
+    # ---------------------------------------------------

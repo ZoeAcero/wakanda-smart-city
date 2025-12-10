@@ -1,0 +1,8 @@
+# Archivo: servicio-emergencia.yml
+
+servicio:
+  nombre: "Servicio de Respuesta Rápida"
+  version: "1.0.0"
+  alerta:
+    tipo: "URGENTE"
+    mensaje-base: "Se ha detectado una situación crítica en Wakanda."
