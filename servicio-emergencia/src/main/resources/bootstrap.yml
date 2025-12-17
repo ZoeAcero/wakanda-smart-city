@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: servicio-emergencia # Nombre clave para obtener la configuración centralizada
-  cloud:
-    config:
-      uri: http://localhost:8888 # URL del Servidor de Configuración

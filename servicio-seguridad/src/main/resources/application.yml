@@ -1,9 +1,9 @@
 server:
-  port: 8081
+  port: 8084
 
 spring:
   application:
-    name: servicio-trafico
+    name: servicio-seguridad
   config:
     import: "optional:configserver:http://localhost:8888"
   cloud:

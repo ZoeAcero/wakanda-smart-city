@@ -1,9 +1,9 @@
 server:
-  port: 8761 # Puerto estándar para el servidor Eureka
+  port: 8761
 
 eureka:
   client:
-    # Indica que este servidor NO debe intentar registrarse a sí mismo como un servicio.
     register-with-eureka: false
-    # Indica que este servidor NO necesita recuperar el registro de otros servicios.
     fetch-registry: false
+  server:
+    enable-self-preservation: false

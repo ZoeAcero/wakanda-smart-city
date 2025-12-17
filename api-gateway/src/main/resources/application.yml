@@ -1,34 +1,32 @@
 server:
-  port: 8080 # Puerto de acceso único para todos los clientes
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        # Ruta para el Servicio de Tráfico
+        - id: servicio-trafico
+          uri: lb://servicio-trafico  # lb:// usa el nombre del servicio en Eureka
+          predicates:
+            - Path=/api/trafico/**
+          filters:
+            - StripPrefix=1 # Elimina /api de la URL antes de enviarla al microservicio
+
+        # Aquí se añadirían las rutas para los otros servicios...
+        - id: servicio-emergencia
+          uri: lb://servicio-emergencia
+          predicates:
+            - Path=/api/emergencia/**
+          filters:
+            - StripPrefix=1
+
+    compatibility-verifier:
+      enabled: false
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/ # URL del Servidor Eureka (para descubrir los servicios)
-
-spring:
-  application:
-    name: api-gateway # Nombre con el que se registrará en Eureka
-  cloud:
-
-    compatibility-verifier:
-      enabled: false # Deshabilita la verificación que causa el fallo de arranque.
-    # ---------------------------------------------------
-    gateway:
-      discovery:
-        locator:
-          # Permite que Gateway use los Service IDs registrados en Eureka (ej: SERVICIO-TRAFICO)
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        # --- Ruta para el Servicio de Tráfico ---
-        - id: trafico_route
-          # lb:// significa 'Load Balance' usando el nombre del servicio registrado en Eureka
-          uri: lb://SERVICIO-TRAFICO
-          predicates:
-            # Todas las peticiones que empiecen con /api/trafico se dirigen al servicio-trafico
-            - Path=/api/trafico/** # --- Ruta para el Servicio de Emergencia ---
-        - id: emergencia_route
-          uri: lb://SERVICIO-EMERGENCIA
-          predicates:
-            - Path=/api/emergencia/**
+      defaultZone: http://localhost:8761/eureka/
